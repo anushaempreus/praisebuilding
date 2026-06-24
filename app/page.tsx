@@ -3,6 +3,7 @@ import Dim from "@/components/Dim";
 import Marquee from "@/components/Marquee";
 import ProjectCard from "@/components/ProjectCard";
 import Link from "next/link";
+import type { Metadata } from "next";
 import { projects, HERO_IMG, CTA_IMG } from "@/lib/projects";
 
 const PRINCIPLES: [string, string][] = [
@@ -18,6 +19,44 @@ const STEPS: [string, string, string][] = [
   ["04", "Handover", "A finished home, a defects walkthrough, and a builder who answers the phone after."],
 ];
 
+export const metadata: Metadata = {
+  title: "Residential Builders Sydney | Heritage Renovations & Custom Homes",
+  description:
+    "Praise Building specialises in custom homes, heritage renovations, home extensions and residential construction across Sydney's Eastern Suburbs and Inner West.",
+
+  keywords: [
+    "Residential Builders Sydney",
+    "Custom Home Builders Sydney",
+    "Heritage Renovations Sydney",
+    "Home Extensions Sydney",
+    "Luxury Home Builders Sydney",
+    "Eastern Suburbs Builders",
+    "Inner West Builders",
+    "Residential Construction Sydney",
+  ],
+
+  alternates: {
+    canonical: "https://www.praisebuilding.com.au",
+  },
+
+  openGraph: {
+    title: "Praise Building | Residential Builders Sydney",
+    description:
+      "Custom homes, heritage renovations and residential construction across Sydney.",
+    url: "https://www.praisebuilding.com.au",
+    siteName: "Praise Building",
+    locale: "en_AU",
+    type: "website",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Praise Building Sydney",
+      },
+    ],
+  },
+};
 export default function Home() {
   const featured = projects.slice(0, 3);
   return (
