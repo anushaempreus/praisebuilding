@@ -8,7 +8,7 @@ export const metadata: Metadata = { title: "Craft — Praise Building" };
 
 const STEPS: [string, string, string][] = [
   ["01", "Consult", "We start with the brief, the site and the budget — and tell you the truth about all three before anything is promised."],
-  ["02", "Design", "Drawings, finishes and a fixed scope, resolved on paper before a single trade is booked."],
+  ["02", "Plan", "Once your architect's drawings are in hand, we resolve finishes, scope and a fixed price — so the build starts with no open questions."],
   ["03", "Build", "One site manager, a tight list of trusted trades, and weekly updates. No surprises on the invoice."],
   ["04", "Handover", "A finished home, a thorough defects walkthrough, and a builder who answers the phone long after."],
 ];
@@ -27,12 +27,12 @@ export default function Craft() {
         <div className="practice-intro">
           <div className="pi-text">
             <Reveal as="p" className="lead">
-              Every Praise build follows the same four stages. The detail changes with the home; the
+              Every build follows the same four stages. The detail changes with the home; the
               discipline does not.
             </Reveal>
             <Reveal as="p" className="body">
-              Nothing important is improvised on site. The decisions get made on paper — drawings,
-              finishes, a resolved scope — so the build itself is mostly a matter of following the plan
+              Nothing important is improvised on site. By the time we start, the architect&rsquo;s drawings,
+              the finishes and the scope are all resolved — so the build is a matter of following the plan
               with care. It keeps the timeline legible and the cost honest.
             </Reveal>
           </div>
@@ -51,9 +51,9 @@ export default function Craft() {
           ))}
         </Reveal>
 
-        <Dim label="From first drawing to final walkthrough" style={{ margin: "8px 0 36px" }} />
+        <Dim label="From first site visit to final walkthrough" style={{ margin: "8px 0 36px" }} />
         <Reveal className="gallery-foot">
-          <p>Ready to start the drawings?</p>
+          <p>Ready to build?</p>
           <Link href="/contact" className="btn">
             Start a project →
           </Link>

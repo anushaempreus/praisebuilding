@@ -5,7 +5,7 @@ import Link from "next/link";
 const LINKS: [string, string][] = [
   ["/work", "Work"],
   ["/craft", "Craft"],
-  ["/praise", "Praise"],
+  ["/gallery", "Gallery"],
   ["/practice", "Practice"],
 ];
 

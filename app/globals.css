@@ -730,7 +730,7 @@ section {
   overflow: hidden;
 }
 .praise::before {
-  content: "PRAISE";
+  content: "HOMES";
   position: absolute;
   right: -2%;
   top: -6%;

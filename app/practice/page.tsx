@@ -22,7 +22,7 @@ export default function Practice() {
         <div className="practice-intro">
           <div className="pi-text">
             <Reveal as="p" className="lead">
-              Praise stays small on purpose — one team, a handful of homes at a time, so the person who
+              We stay small on purpose — one team, a handful of homes at a time, so the person who
               quotes your job is the person who sees it through.
             </Reveal>
             <Reveal as="p" className="body">

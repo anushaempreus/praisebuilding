@@ -14,7 +14,7 @@ const PRINCIPLES: [string, string][] = [
 
 const STEPS: [string, string, string][] = [
   ["01", "Consult", "We start with the brief, the site and the budget — and tell you the truth about all three."],
-  ["02", "Design", "Drawings, finishes and a fixed scope, resolved before a single trade is booked."],
+  ["02", "Plan", "From your architect's drawings, we settle finishes, scope and a fixed price — before a single trade is booked."],
   ["03", "Build", "One site manager, a tight trade list, weekly updates. No surprises on the invoice."],
   ["04", "Handover", "A finished home, a defects walkthrough, and a builder who answers the phone after."],
 ];
@@ -70,13 +70,13 @@ export default function Home() {
         <div className="hero-inner">
           <div className="eyebrow mono">Residential Builders — Established across Sydney</div>
           <h1>
-            {["Homes", "worth", "the"].map((w, i) => (
+            {["Homes", "built", "to"].map((w, i) => (
               <span key={w} className="w" style={{ animationDelay: `${0.3 + i * 0.12}s` }}>
                 {w}{" "}
               </span>
             ))}
             <span className="w" style={{ animationDelay: "0.66s" }}>
-              <em>praise</em>.
+              <em>last</em>.
             </span>
           </h1>
           <p className="hero-sub">
@@ -102,7 +102,7 @@ export default function Home() {
           A home is the longest project anyone commissions — a year of decisions someone <em>lives inside</em> for decades.
         </Reveal>
         <Reveal as="p" className="body">
-          Praise builds for that horizon: deliberate detailing, honest materials, and a build run with the rigour of a
+          We build for that horizon: deliberate detailing, honest materials, and a build run with the rigour of a
           working drawing. No surprises — on the timeline or the invoice.
         </Reveal>
         <Reveal className="tenets">
@@ -134,15 +134,15 @@ export default function Home() {
         <Dim label="+ Annandale · Redfern · Greenacre" style={{ marginTop: 30 }} />
       </section>
 
-      {/* PRAISE */}
-      <section className="praise" id="praise">
+      {/* GALLERY */}
+      <section className="praise" id="gallery">
         <Reveal className="inner">
-          <div className="mono">003 — Praise</div>
+          <div className="mono">003 — Gallery</div>
           <blockquote>
-            Praise is a high bar to name a building company after. We&rsquo;d rather the <b>homes</b> earn it than the website claim it.
+            Every <b>home</b> we build, photographed on completion — gathered in one place.
           </blockquote>
-          <Link href="/praise" className="praise-link mono">See the work →</Link>
-          <Dim dark label="The work, in its own words" style={{ margin: "64px 0 0" }} />
+          <Link href="/gallery" className="praise-link mono">See the gallery →</Link>
+          <Dim dark label="A record of the work" style={{ margin: "64px 0 0" }} />
         </Reveal>
       </section>
 

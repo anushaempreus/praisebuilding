@@ -4,7 +4,7 @@ import Reveal from "@/components/Reveal";
 import Dim from "@/components/Dim";
 import { projects } from "@/lib/projects";
 
-export const metadata: Metadata = { title: "Praise — Praise Building" };
+export const metadata: Metadata = { title: "Gallery — Praise Building" };
 
 // The gallery is built from the real project photography — interleaved across
 // every project so the page reads as one body of work, not six folders.
@@ -26,16 +26,16 @@ const shots: Shot[] = (() => {
   return out.slice(0, 24);
 })();
 
-export default function Praise() {
+export default function Gallery() {
   return (
     <main className="subpage gallery-page">
       <section>
         <Reveal className="pagehead">
-          <div className="mono no amber">003 — Praise</div>
-          <h1>The work is the word.</h1>
+          <div className="mono no amber">003 — Gallery</div>
+          <h1>The work, in one place.</h1>
           <p className="lede">
-            We&rsquo;d rather show than tell. Every home here was built by Praise and photographed on
-            completion — they make the case better than a testimonial could.
+            Every home here is one we&rsquo;ve built, photographed on completion — gathered across
+            projects so you can see the standard of finish for yourself.
           </p>
         </Reveal>
 
