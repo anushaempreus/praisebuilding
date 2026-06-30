@@ -11,11 +11,22 @@ const RESEND_API_KEY = process.env.RESEND_API_KEY;
 const CONTACT_TO = process.env.CONTACT_TO;
 const CONTACT_FROM = process.env.CONTACT_FROM || "Praise Building <onboarding@resend.dev>";
 
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 export async function POST(req: Request) {
   try {
-    const { name, email, suburb, message } = await req.json();
-    if (!name || !email || !message) {
-      return NextResponse.json({ ok: false, error: "Missing fields" }, { status: 400 });
+    const body = await req.json().catch(() => ({}));
+    const name = String(body.name || "").trim();
+    const email = String(body.email || "").trim();
+    const suburb = String(body.suburb || "").trim();
+    const message = String(body.message || "").trim();
+
+    // Re-validate server-side — never trust the client.
+    if (!name || !message || !EMAIL_RE.test(email)) {
+      return NextResponse.json(
+        { ok: false, error: "Name, a valid email and a message are required." },
+        { status: 400 }
+      );
     }
 
     // Not configured yet — log so nothing is lost, and don't fail the form.

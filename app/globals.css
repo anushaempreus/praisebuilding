@@ -1185,6 +1185,15 @@ footer .mono {
 .form label span {
   opacity: 0.6;
 }
+.form label .req {
+  color: var(--amber);
+  opacity: 1;
+}
+.form label .opt {
+  text-transform: none;
+  letter-spacing: 0;
+  opacity: 0.7;
+}
 .form input,
 .form textarea {
   font-family: var(--sans);

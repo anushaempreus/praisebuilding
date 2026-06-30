@@ -4,15 +4,31 @@ import Reveal from "@/components/Reveal";
 import { projects } from "@/lib/projects";
 
 const asideImg = projects.find((p) => p.slug === "annandale")?.cover ?? projects[0].cover;
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export default function Contact() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [errMsg, setErrMsg] = useState("");
 
   async function submit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setStatus("sending");
     const form = e.currentTarget;
-    const data = Object.fromEntries(new FormData(form).entries());
+    const fd = new FormData(form);
+    const data = {
+      name: String(fd.get("name") || "").trim(),
+      email: String(fd.get("email") || "").trim(),
+      suburb: String(fd.get("suburb") || "").trim(),
+      message: String(fd.get("message") || "").trim(),
+    };
+
+    // Required-field check (also catches whitespace-only entries the browser allows).
+    if (!data.name || !data.message || !EMAIL_RE.test(data.email)) {
+      setErrMsg("Please add your name, a valid email and a short note about the project.");
+      setStatus("error");
+      return;
+    }
+
+    setStatus("sending");
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
@@ -23,6 +39,7 @@ export default function Contact() {
       setStatus("sent");
       form.reset();
     } catch {
+      setErrMsg("Something went wrong — please try again in a moment.");
       setStatus("error");
     }
   }
@@ -38,28 +55,28 @@ export default function Contact() {
 
         <div className="contact-cols">
         <Reveal className="form-wrap">
-          <form onSubmit={submit} className="form">
+          <form onSubmit={submit} className="form" noValidate>
             <label>
-              <span className="mono">Name</span>
+              <span className="mono">Name <span className="req">*</span></span>
               <input name="name" required />
             </label>
             <label>
-              <span className="mono">Email</span>
+              <span className="mono">Email <span className="req">*</span></span>
               <input name="email" type="email" required />
             </label>
             <label>
-              <span className="mono">Suburb</span>
+              <span className="mono">Suburb <span className="opt">(optional)</span></span>
               <input name="suburb" />
             </label>
             <label className="full">
-              <span className="mono">About the project</span>
+              <span className="mono">About the project <span className="req">*</span></span>
               <textarea name="message" rows={5} required />
             </label>
             <button className="btn" type="submit" disabled={status === "sending"}>
               {status === "sending" ? "Sending…" : "Send enquiry →"}
             </button>
             {status === "sent" && <p className="note ok">Thanks — we’ll be in touch shortly.</p>}
-            {status === "error" && <p className="note err">Something went wrong — please try again in a moment.</p>}
+            {status === "error" && <p className="note err">{errMsg}</p>}
           </form>
         </Reveal>
         <Reveal className="contact-aside" delay={80}>
